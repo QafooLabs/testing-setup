@@ -1,0 +1,12 @@
+{
+    "require-dev": {
+        "behat/behat": "2.4.*@stable",
+        "behat/mink": "1.4@stable",
+        "behat/mink-extension": "@stable",
+        "behat/mink-sahi-driver": "@stable",
+        "behat/mink-goutte-driver": "@stable"
+    },
+    "config": {
+        "bin-dir": "vendor/bin/"
+    }
+}
