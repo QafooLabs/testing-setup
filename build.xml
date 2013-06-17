@@ -18,7 +18,7 @@
         <mkdir dir="${logdir}" />
     </target>
 
-    <target name="test" depends="test-unit, test-static" />
+    <target name="test" depends="test-unit, test-feature, test-static" />
 
     <target name="test-static" depends="prepare, test-static-jdepend, test-static-cpd, test-static-checkstyle, test-static-pmd" />
 
@@ -40,7 +40,7 @@
             <arg value="--format" />
             <arg value="junit,progress" />
             <arg value="--out" />
-            <arg value="${commons:logsdir}," />
+            <arg value="${logdir}," />
         </exec>
     </target>
 
