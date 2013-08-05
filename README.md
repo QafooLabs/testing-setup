@@ -6,12 +6,21 @@ Please make sure that you have a working setup of:
 * PHPUnit 3.7 (or newer)
 * A Git client
 
+## Installation
+
+1. Make sure PHP is installed on your machine. The following link has
+   more information on how to install PHP: http://www.phptherightway.com/#getting_started
+   On a Debian/Ubuntu-based machine installing PHP is as simple as calling `apt-get install php5 php5-cli` as root user.
+2. Using your Git client, checkout https://github.com/QafooLabs/testing-setup.git to a directory of your choice.
+3. In the checked out directory call `php composer.phar install --dev --prefer-dist` to install all the dependencies.
+   Composer is a dependency management tool. It will will download the code as zip packages from Github Download servers.
+
 ## Links
 
 * http://www.phpunit.de/manual/current/en/installation.html
 * http://git-scm.com/downloads
 
-## Vagrant setup
+## Vagrant setup (optional)
 
 For those who are interested there is a vagrant setup available (optional).
 Just follow these steps to get up and running with your own Virtual environment.
