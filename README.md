@@ -3,17 +3,21 @@
 Please make sure that you have a working setup of:
 
 * PHP 5.3 (or newer)
-* PHPUnit 3.7 (or newer)
 * A Git client
 
 ## Installation
 
-1. Make sure PHP is installed on your machine. The following link has
-   more information on how to install PHP: http://www.phptherightway.com/#getting_started
+1. Make sure PHP is installed on your machine. The following link has more information on how to install PHP:
+   http://www.phptherightway.com/#getting\_started
    On a Debian/Ubuntu-based machine installing PHP is as simple as calling `apt-get install php5 php5-cli` as root user.
-2. Using your Git client, checkout https://github.com/QafooLabs/testing-setup.git to a directory of your choice.
-3. In the checked out directory call `php composer.phar install --dev --prefer-dist` to install all the dependencies.
-   Composer is a dependency management tool. It will will download the code as zip packages from Github Download servers.
+2. Make sure [Composer](http://getcomposer.org/) is installed on your machine.
+   Composer is a dependency management tool. It will will download the code as
+   zip packages from Github Download servers. For installation instructions
+   see: http://getcomposer.org/download/
+3. Using your Git client, checkout https://github.com/QafooLabs/testing-setup.git to a directory of your
+   choice. On the shell you can do that using `$ git clone https://github.com/QafooLabs/testing-setup.git`.
+4. Switch into the directory of the checkout and call `$ php composer.phar install --dev --prefer-dist`
+   to install all the dependencies.
 
 ## Links
 
