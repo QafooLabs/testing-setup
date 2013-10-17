@@ -18,6 +18,7 @@ Please make sure that you have a working setup of:
    choice. On the shell you can do that using `$ git clone https://github.com/QafooLabs/testing-setup.git`.
 4. Switch into the directory of the checkout and call `$ php composer.phar install --dev --prefer-dist`
    to install all the dependencies.
+5. Try to execute PHPUnit using `$ vendor/bin/phpunit`, the result should be a single successful test run.
 
 ## Links
 
