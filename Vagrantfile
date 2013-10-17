@@ -8,7 +8,7 @@ Vagrant.configure("2") do |config|
 
   config.vm.define :master do |master_config|
     master_config.vm.host_name = "testablecode.workshop.phpbenelux.eu"
-    master_config.vm.network :hostonly, ip: "33.33.33.10"
+    master_config.vm.network "private_network", ip: "33.33.33.10"
     master_config.vm.provision :puppet do |puppet|
       puppet.manifests_path = "vm"
       puppet.manifest_file = "main.pp"
