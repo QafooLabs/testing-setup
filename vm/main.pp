@@ -25,7 +25,7 @@ node default {
         require => File["/etc/resolvconf/resolv.conf.d/head"]
     }
 
-    package { ['php5', 'git-core', 'vim'] :
+    package { ['php5', 'git-core', 'vim', 'php5-curl'] :
         ensure => installed,
         require => Exec['update']
     }
