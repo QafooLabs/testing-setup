@@ -9,4 +9,4 @@ default:
             javascript_session: 'sahi'
             sahi: ~
             goutte: ~
-            browser_name: chrome
+            browser_name: firefox
