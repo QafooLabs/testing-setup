@@ -10,5 +10,10 @@
         "behat/mink-sahi-driver": "@stable",
         "behat/mink-goutte-driver": "@stable",
         "mockery/mockery": "@stable"
+    },
+    "autoload": {
+        "psr-0": {
+            "Qafoo": ["src/main", "test"]
+        }
     }
 }
