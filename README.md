@@ -1,4 +1,9 @@
-# Workshop Testing Setup
+# Workshop Testing Setup - Testable Code Edition
+
+*The source code base contained as a starting point in this repository was
+originally taken from https://github.com/caradojo/trivia and adjusted to suite
+for the "Testable Code" workshop rather than a Legacy Code Retreat. Thanks to
+[J. B. Rainsberger](https://github.com/jbrains) for the inspiration.*
 
 Please make sure that you have a working setup of:
 
