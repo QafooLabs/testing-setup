@@ -7,7 +7,7 @@ require_once __DIR__ . '/../../vendor/autoload.php';
 
 $notAWinner;
 
-$aGame = new Game();
+$aGame = new Game(new PrintGameEvents());
 
 $aGame->add("Chet");
 $aGame->add("Pat");
