@@ -43,15 +43,24 @@ class GameTest extends \PHPUnit_Framework_TestCase
 
         $this->expectOutputRegex('(The category is ' . $expectedCategory . ')');
 
-        $game->roll(3);
+        $game->roll($role);
     }
 
     public static function provideRoleCategorySets()
     {
         return array(
-            array('0', 'Rock'),
-            array('4', 'Rock'),
-            array('8', 'Rock'),
+            array(0, 'Pop'),
+            array(4, 'Pop'),
+            array(8, 'Pop'),
+            array(1, 'Science'),
+            array(5, 'Science'),
+            array(9, 'Science'),
+            array(2, 'Sports'),
+            array(6, 'Sports'),
+            array(10, 'Sports'),
+            array(3, 'Rock'),
+            array(7, 'Rock'),
+            array(11, 'Rock'),
         );
     }
 }
