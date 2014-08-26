@@ -63,4 +63,21 @@ class GameTest extends \PHPUnit_Framework_TestCase
             array(11, 'Rock'),
         );
     }
+
+    public function testPenaltyBox()
+    {
+        $game  = new Game();
+
+        $game->add('Paul');
+        $game->add('Eric');
+
+        $this->expectOutputRegex('(Paul was sent to the penalty box)');
+        $game->wrongAnswer();
+
+        // Eric normal
+        $game->wasCorrectlyAnswered();
+
+        $this->expectOutputRegex('(Paul is getting out of the penalty box)');
+        $game->roll(3);
+    }
 }
