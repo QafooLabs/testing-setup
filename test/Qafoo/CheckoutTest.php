@@ -9,9 +9,17 @@ class CheckoutTest extends \PHPUnit_Framework_TestCase
      */
     private $checkout;
 
+    /**
+     * @var \Qafoo\Display
+     */
+    private $displayMock;
+
     public function setUp()
     {
-        $this->checkout = new Checkout();
+        $this->displayMock = $this->getMockBuilder('Qafoo\\Display')
+            ->getMock();
+
+        $this->checkout = new Checkout($this->displayMock);
     }
 
     public function testScanOneItem()
@@ -30,5 +38,15 @@ class CheckoutTest extends \PHPUnit_Framework_TestCase
         $this->checkout->scan('B');
 
         $this->assertEquals(33.42, $this->checkout->getSum());
+    }
+
+    public function testDisplayIsTriggered()
+    {
+        $this->displayMock->expects($this->exactly(2))
+            ->method('display')
+            ->with($this->isType('float'));
+
+        $this->checkout->scan('A');
+        $this->checkout->scan('B');
     }
 }

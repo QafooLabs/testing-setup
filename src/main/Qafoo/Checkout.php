@@ -11,9 +11,17 @@ class Checkout
 
     private $sum = 0;
 
+    private $display;
+
+    public function __construct(Display $display)
+    {
+        $this->display = $display;
+    }
+
     public function scan($item)
     {
         $this->sum += $this->prices[$item];
+        $this->display->display($this->getSum());
     }
 
     public function getSum()
