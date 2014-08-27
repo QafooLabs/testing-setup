@@ -4,13 +4,20 @@ namespace Qafoo;
 
 class Checkout
 {
-   public function scan($item)
-   {
-       return null;
-   }
+    private $prices = array(
+        'A' => 23.42,
+        'B' => 10.00,
+    );
 
-   public function getSum()
-   {
-       return 23.42;
-   }
+    private $sum = 0;
+
+    public function scan($item)
+    {
+        $this->sum += $this->prices[$item];
+    }
+
+    public function getSum()
+    {
+        return $this->sum;
+    }
 }

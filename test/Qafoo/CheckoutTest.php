@@ -4,20 +4,31 @@ namespace Qafoo;
 
 class CheckoutTest extends \PHPUnit_Framework_TestCase
 {
+    /**
+     * @var \Qafoo\Checkout
+     */
+    private $checkout;
+
+    public function setUp()
+    {
+        $this->checkout = new Checkout();
+    }
+
     public function testScanOneItem()
     {
-        $checkout = new Checkout();
-
-        $checkout->scan('A');
+        $this->checkout->scan('A');
 
         $this->assertEquals(
             23.42,
-            $checkout->getSum()
+            $this->checkout->getSum()
         );
     }
 
-    public function testThrowsExceptio()
+    public function testScanMultipleItems()
     {
-        $this->setExpectedException('\RuntimeException');
+        $this->checkout->scan('A');
+        $this->checkout->scan('B');
+
+        $this->assertEquals(33.42, $this->checkout->getSum());
     }
 }
