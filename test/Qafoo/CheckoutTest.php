@@ -14,12 +14,24 @@ class CheckoutTest extends \PHPUnit_Framework_TestCase
      */
     private $displayMock;
 
+    /**
+     * @var \Qafoo\PriceRepository
+     */
+    private $priceRepositoryMock;
+
     public function setUp()
     {
         $this->displayMock = $this->getMockBuilder('Qafoo\\Display')
             ->getMock();
 
-        $this->checkout = new Checkout($this->displayMock);
+        $this->priceRepositoryMock = new ArrayPriceRepository(
+            array(
+                'A' => 23.42,
+                'B' => 10.00,
+            )
+        );
+
+        $this->checkout = new Checkout($this->displayMock, $this->priceRepositoryMock);
     }
 
     public function testScanOneItem()

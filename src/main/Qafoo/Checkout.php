@@ -4,23 +4,19 @@ namespace Qafoo;
 
 class Checkout
 {
-    private $prices = array(
-        'A' => 23.42,
-        'B' => 10.00,
-    );
-
     private $sum = 0;
 
     private $display;
 
-    public function __construct(Display $display)
+    public function __construct(Display $display, PriceRepository $priceRepository)
     {
         $this->display = $display;
+        $this->priceRepository = $priceRepository;
     }
 
     public function scan($item)
     {
-        $this->sum += $this->prices[$item];
+        $this->sum += $this->priceRepository->getPrice($item);
         $this->display->display($this->getSum());
     }
 
