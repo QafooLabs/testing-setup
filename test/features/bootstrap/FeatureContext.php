@@ -15,5 +15,6 @@ class FeatureContext extends MinkContext
     {
         $this->useContext('example', new ExampleContext($parameters));
         $this->useContext('wikipedia', new WikipediaContext($parameters));
+        $this->useContext('javascript', new JavaScriptContext($parameters));
     }
 }
