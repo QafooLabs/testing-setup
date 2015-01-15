@@ -3,8 +3,6 @@
 use Behat\Behat\Context\BehatContext,
     Behat\Behat\Exception\PendingException;
 
-require 'PHPUnit/Autoload.php';
-
 class ExampleContext extends BehatContext
 {
     protected $date;

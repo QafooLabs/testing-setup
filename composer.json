@@ -4,7 +4,7 @@
     },
     "require-dev": {
         "phpunit/phpunit": "@stable",
-        "behat/behat": "@stable",
+        "behat/behat": "2.*",
         "behat/mink": "@stable",
         "behat/mink-extension": "@stable",
         "behat/mink-sahi-driver": "@stable",

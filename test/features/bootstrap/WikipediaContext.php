@@ -4,8 +4,6 @@ use Behat\Behat\Context\BehatContext,
     Behat\Behat\Exception\PendingException,
     Behat\Behat\Context\Step;
 
-require 'PHPUnit/Autoload.php';
-
 class WikipediaContext extends BehatContext
 {
     /**
