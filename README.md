@@ -21,8 +21,11 @@ Please make sure that you have a working setup of:
 3. Switch into the directory of the checkout and call
    `$ php composer.phar install --prefer-dist` to install all the dependencies.
 
-4. Try to execute PHPUnit using `$ vendor/bin/phpunit`, the result should be a
-   single successful test run.
+4. [PHPUnit] Try to execute PHPUnit using `$ vendor/bin/phpunit`, the result
+   should be a single successful test run.
+
+5. [Behat] Try to execute Behat using `$ vendor/bin/behat`, the result should
+   be at least 3 passed tests.
 
 ## Links
 
@@ -35,17 +38,20 @@ Please make sure that you have a working setup of:
 For those who are interested there is a vagrant setup available (optional).
 Just follow these steps to get up and running with your own Virtual environment.
 
-* Install [Virtualbox](https://www.virtualbox.org/) and [Vagrant](http://www.vagrantup.com)
-* From the root of this git repository run `vagrant up` and wait for the VM to boot and provision
-* SSH into the VM by running `vagrant ssh` and switch to the `/vagrant` directory
+* Install [Virtualbox](https://www.virtualbox.org/) and
+  [Vagrant](http://www.vagrantup.com)
+* From the root of this git repository run `$ vagrant up` and wait for the VM
+  to boot and provision
+* SSH into the VM by running `$ vagrant ssh` and switch to the `testing-setup`
+  directory using `$ cd testing-setup`
 
-Once in the virtual machine you can find all files in `/vagrant`, this is
-actually the folder on your machine (the host) you ran the `vagrant up` command
-from, mounted into the Virtual machine. All changes made to files inside this
-directory on your computer will reflect immediately on the Virtual machine.
-This allows you to run PHPUnit on the VM through an SSH session while
-still being able to edit the files on your computer with your favourite editor
-or IDE.
+Once in the virtual machine you can find all files in
+`/home/vagrant/testing-setup`, this is actually the folder on your machine (the
+host) you ran the `vagrant up` command from, mounted into the Virtual machine.
+All changes made to files inside this directory on your computer will reflect
+immediately on the Virtual machine.  This allows you to run PHPUnit on the VM
+through an SSH session while still being able to edit the files on your
+computer with your favourite editor or IDE.
 
-To test if all is installed correct run `$ phpunit` from the `/vagrant` folder
-in your VM.
+To test if all is installed correct run `$ phpunit` from the `testing-setup`
+folder in your VM.
