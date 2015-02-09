@@ -2,7 +2,7 @@
 
 Please make sure that you have a working setup of:
 
-* PHP 5.3 (or newer)
+* PHP 5.4 (or newer)
 * A Git client
 
 ## Installation
