@@ -1,20 +1,27 @@
-# Base Vagrant config for Nucleus Puppet
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
 
-Vagrant::Config.run do |config|
-  config.vm.box      = "precise64"
-  config.vm.box_url  = "http://files.vagrantup.com/precise64.box"
+Vagrant.configure(2) do |config|
+  config.vm.hostname = "testing-setup.qafoo.local"
+  config.vm.network :private_network, ip: "33.33.33.10"
+
+  config.vm.box = "ubuntu/trusty64"
+
 
   #config.vbguest.auto_update = false
+  
+  config.vm.define "testing-setup" do |setup|
 
-  config.vm.define :master do |master_config|
-    master_config.vm.host_name = "testablecode.workshop.phpbenelux.eu"
-    master_config.vm.network :hostonly, "33.33.33.10"
-    master_config.vm.provision :puppet do |puppet|
+    config.vm.provider "virtualbox" do |vb|
+      vb.customize ["modifyvm", :id, "--memory", 1024]
+    end
+
+    config.vm.provision :puppet do |puppet|
       puppet.manifests_path = "vm"
       puppet.manifest_file = "main.pp"
       puppet.options = ['--verbose']
     end
   end
 
-  config.vm.customize ["modifyvm", :id, "--memory", 1024]
+  config.vm.synced_folder "./", "/home/vagrant/testing-setup", :nfs => (RUBY_PLATFORM =~ /linux/ or RUBY_PLATFORM =~ /darwin/)
 end
