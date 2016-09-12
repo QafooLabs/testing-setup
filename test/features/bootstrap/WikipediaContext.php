@@ -1,19 +1,18 @@
 <?php
 
-use Behat\Behat\Context\BehatContext,
+use Behat\Behat\Context\Context,
     Behat\Behat\Exception\PendingException,
-    Behat\Behat\Context\Step;
+    Behat\Behat\Definition\Call,
+    Behat\MinkExtension\Context\MinkContext;
 
-class WikipediaContext extends BehatContext
+class WikipediaContext extends MinkContext
 {
     /**
      * @Given /^I am on the frontpage$/
      */
     public function iAmOnTheFrontpage()
     {
-        return array(
-            new Step\Given('I am on "/"'),
-        );
+        $this->iAmOnHomepage();
     }
 
     /**
@@ -21,10 +20,8 @@ class WikipediaContext extends BehatContext
      */
     public function iSearchFor($searchTerm)
     {
-        return array(
-            new Step\When('I fill in "searchInput" with "' . $searchTerm . '"'),
-            new Step\When('I press "searchButton"'),
-        );
+        $this->fillField('searchInput', $searchTerm);
+        $this->pressButton('searchButton');
     }
 
     /**
@@ -32,8 +29,6 @@ class WikipediaContext extends BehatContext
      */
     public function thePageShouldExist()
     {
-        return array(
-            new Step\Then('I should see "GNC (store)"'),
-        );
+        $this->assertPageContainsText('GNC (store)');
     }
 }

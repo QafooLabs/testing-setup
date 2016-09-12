@@ -6,7 +6,7 @@
         "phpunit/phpunit": "@stable",
         "mockery/mockery": "@stable",
 
-        "behat/behat": "2.*",
+        "behat/behat": "@stable",
         "behat/mink": "@stable",
         "behat/mink-extension": "@stable",
         "behat/mink-sahi-driver": "@stable",

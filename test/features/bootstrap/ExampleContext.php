@@ -1,9 +1,9 @@
 <?php
 
-use Behat\Behat\Context\BehatContext,
+use Behat\Behat\Context\Context,
     Behat\Behat\Exception\PendingException;
 
-class ExampleContext extends BehatContext
+class ExampleContext implements Context
 {
     protected $date;
 
