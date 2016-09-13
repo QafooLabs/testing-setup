@@ -4,6 +4,7 @@ namespace Qafoo;
 
 use Behat\Mink\Driver;
 use Behat\Mink\Session;
+use Behat\SahiClient;
 
 abstract class FeatureTest extends IntegrationTest
 {
@@ -14,7 +15,12 @@ abstract class FeatureTest extends IntegrationTest
         switch (strtolower(getenv('DRIVER'))) {
             case 'sahi':
                 $browser = getenv('BROWSER') ?: 'firefox';
-                $driver = new Driver\SahiDriver($browser);
+                $driver = new Driver\SahiDriver(
+                    $browser,
+                    new SahiClient\Client(
+                        new SahiClient\Connection(null, 'localhost', 9999)
+                    )
+                );
                 break;
 
             case 'goutte':
