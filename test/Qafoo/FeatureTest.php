@@ -59,7 +59,7 @@ abstract class FeatureTest extends IntegrationTest
             $this->start();
         }
 
-        $domain = getenv('DOMAIN') ?: 'http://en.wikipedia.com';
+        $domain = getenv('DOMAIN') ?: 'http://cron.schlitt.info';
         $this->session->visit($domain . $path);
         return $this->session->getPage();
     }
