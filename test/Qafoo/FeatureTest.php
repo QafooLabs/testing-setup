@@ -73,9 +73,7 @@ abstract class FeatureTest extends IntegrationTest
     protected function find($cssSelector)
     {
         $result = $this->session->getPage()->find('css', $cssSelector);
-        if (!$result) {
-            throw new \OutOfBoundsException("Could not find any elements matching '$cssSelector'.");
-        }
+        $this->assertNotNull($result, "Did not find any elements matching $cssSelector");
 
         return $result;
     }
