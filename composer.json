@@ -3,6 +3,10 @@
         "php": ">=5.4.0"
     },
     "require-dev": {
+        "phpmd/phpmd": "@stable",
+        "pdepend/pdepend": "@stable",
+        "sebastian/phpcpd": "@stable",
+        "squizlabs/php_codesniffer": "@stable",
         "phpunit/phpunit": "@stable",
         "mockery/mockery": "@stable",
 
