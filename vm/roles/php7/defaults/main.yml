@@ -1,0 +1,8 @@
+---
+php_conf_directory: "/etc/php/{{ php_version }}/"
+php_cli_confd_directory: "{{ php_conf_directory }}cli/conf.d"
+php_fpm_confd_directory: "{{ php_conf_directory }}fpm/conf.d"
+php_fpm_pool_file: "/etc/php/{{ php_version }}/fpm/php-fpm.conf"
+php_user: "{{ web_user }}"
+php_service: "php{{ php_version }}-fpm"
+http_cache: 1

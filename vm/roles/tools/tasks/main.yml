@@ -1,0 +1,31 @@
+---
+- name: "Install Tools"
+  apt: pkg={{ item }} state=present
+  with_items:
+    - apt-transport-https
+    - vim
+    - tzdata
+    - bash-completion
+
+- name: "Install Development Tools"
+  apt: pkg={{ item }} state=present
+  with_items:
+    - curl
+    - tree
+
+- name: "Configure timezone file"
+  copy: content="{{ timezone }}" dest=/etc/timezone
+  changed_when: false
+
+- name: "Reconfigure timezone"
+  command: dpkg-reconfigure -f noninteractive tzdata
+  changed_when: false
+
+- name: "Set VIM as default editor"
+  command: update-alternatives --set editor /usr/bin/vim.basic
+  changed_when: false
+
+- name: "Set hostname"
+  template: >
+    src=hostname.j2
+    dest=/etc/hostname

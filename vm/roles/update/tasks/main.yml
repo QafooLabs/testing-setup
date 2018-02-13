@@ -1,0 +1,15 @@
+---
+- name: "Update System (Debian)"
+  apt: update_cache=yes cache_valid_time=86400 upgrade=dist autoremove=yes
+
+- name: Install unattended-upgrades
+  apt: pkg=unattended-upgrades state=present
+
+- name: Enforce language
+  lineinfile: >
+    dest=/etc/environment
+    line="{{ item }}"
+    state=present
+  with_items:
+    - "LANG=en_US.UTF-8"
+    - "LC_ALL=en_US.UTF-8"

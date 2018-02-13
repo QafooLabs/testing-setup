@@ -1,0 +1,45 @@
+---
+- name: Add PHP 7 repository
+  apt_repository: repo='ppa:ondrej/php'
+
+- name: Install PHP
+  apt: pkg={{ item }} state=latest
+  with_items:
+    - "php{{ php_version }}"
+    - "php{{ php_version }}-common"
+    - "php{{ php_version }}-cli"
+    - "php{{ php_version }}-curl"
+    - "php{{ php_version }}-gd"
+    - "php{{ php_version }}-intl"
+    - "php{{ php_version }}-xsl"
+    - "php{{ php_version }}-zip"
+    - php-imagick
+
+- name: Install PHP Debug packages
+  apt: pkg={{ item }} state=latest
+  with_items:
+    - php{{ php_version }}-xdebug
+
+- name: Configure PHP CLI
+  template: src=php-cli.ini.j2 dest={{ php_conf_directory }}/cli/php.ini owner=root group=root mode=0644
+
+- name: Configure PHP-CLI
+  template: src={{ item }} dest={{ php_cli_confd_directory }}/{{ item }} owner=root group=root mode=0644
+  with_items:
+    - 10-memory_limit.ini
+    - 20-mail.ini
+    - 30-timezone.ini
+    - 40-errors.ini
+
+- name: "Install Composer"
+  get_url: >
+    dest=/opt/composer.phar
+    url=https://getcomposer.org/composer.phar
+    mode=0755
+    validate_certs=no
+
+- name: "Link Composer"
+  file: >
+    state=link
+    src=/opt/composer.phar
+    dest=/usr/local/bin/composer

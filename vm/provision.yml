@@ -1,0 +1,9 @@
+---
+- name: Provision Basic Setup
+  hosts: all
+  gather_facts: no
+  become: yes
+  roles:
+    - update
+    - tools
+    - php7

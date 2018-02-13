@@ -5,7 +5,8 @@ Vagrant.configure(2) do |config|
   config.vm.hostname = "testing-setup.qafoo.local"
   config.vm.network :private_network, ip: "33.33.33.10"
 
-  config.vm.box = "ubuntu/trusty64"
+  config.vm.box_url = "https://cloud-images.ubuntu.com/xenial/current/xenial-server-cloudimg-amd64-vagrant.box"
+  config.vm.box = "ubuntu/xenial64"
 
 
   #config.vbguest.auto_update = false
@@ -16,12 +17,23 @@ Vagrant.configure(2) do |config|
       vb.customize ["modifyvm", :id, "--memory", 1024]
     end
 
-    config.vm.provision :puppet do |puppet|
-      puppet.manifests_path = "vm"
-      puppet.manifest_file = "main.pp"
-      puppet.options = ['--verbose']
+    config.vm.provision "ansible_local" do |ansible|
+        ansible.inventory_path = "/home/vagrant/testing-setup/vm/vagrant"
+        ansible.limit = "all"
+        ansible.playbook = "/home/vagrant/testing-setup/vm/provision.yml"
+        ansible.verbose = false
+  
+        if ENV['ANSIBLE_TAGS'] != nil
+            puts "Setting ansible.tags=#{ENV['ANSIBLE_TAGS']}"
+            ansible.tags = "#{ENV['ANSIBLE_TAGS']}"
+        end
     end
   end
 
-  config.vm.synced_folder "./", "/home/vagrant/testing-setup", :nfs => (RUBY_PLATFORM =~ /linux/ or RUBY_PLATFORM =~ /darwin/)
+  if Vagrant::Util::Platform.windows?
+      config.vm.synced_folder ".", "/home/vagrant/testing-setup", type: "rsync", rsync__exclude: ".git/"
+  else
+      config.vm.synced_folder ".", "/home/vagrant/testing-setup", mount_options: ["rw", "tcp", "nolock", "noacl", "async"], :nfs => true
+  end
+  config.vm.synced_folder ".", "/vagrant"
 end

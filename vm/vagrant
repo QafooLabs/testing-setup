@@ -1,0 +1,4 @@
+vm ansible_connection=local
+
+[all:vars]
+is_vm=True
