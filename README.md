@@ -2,7 +2,7 @@
 
 Please make sure that you have a working setup of:
 
-* PHP 5.4 (or newer)
+* PHP 7.0 (or newer)
 * A Git client
 
 ## Installation
@@ -11,7 +11,7 @@ Please make sure that you have a working setup of:
    information on how to install PHP:
    http://www.phptherightway.com/#getting\_started
    On a Debian/Ubuntu-based machine installing PHP is as simple as calling
-   `apt-get install php5 php5-cli` as root user.
+   `apt-get install php7.1 php7.1-cli` as root user.
 
 2. Using your Git client, checkout
    https://github.com/QafooLabs/testing-setup.git to a directory of your
