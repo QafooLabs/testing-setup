@@ -28,7 +28,7 @@ class ExampleContext implements Context
      */
     public function itResultsInThe($date)
     {
-        \PHPUnit_Framework_Assert::assertEquals(
+        \PHPUnit\Framework\Assert::assertEquals(
             $date,
             $this->date->format("d.m.Y")
         );
