@@ -1,0 +1,5 @@
+---
+home: "/home/{{ user }}"
+shell: /bin/bash
+password: null
+type: VM

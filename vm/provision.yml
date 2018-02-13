@@ -7,3 +7,4 @@
     - update
     - tools
     - php7
+    - { role: user, user: 'vagrant' }

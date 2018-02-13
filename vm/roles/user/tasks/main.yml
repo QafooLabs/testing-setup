@@ -1,0 +1,16 @@
+---
+- name: "Copy bashrc"
+  template: >
+    src=bashrc.j2
+    dest={{ home }}/.bashrc
+    owner={{ user }}
+    group={{ user }}
+    mode=644
+
+- name: "Select editor"
+  copy: >
+    src=selected_editor
+    dest={{ home }}/.selected_editor
+    owner={{ user }}
+    group={{ user }}
+    mode=644
