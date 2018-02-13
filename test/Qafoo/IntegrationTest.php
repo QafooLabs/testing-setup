@@ -2,7 +2,7 @@
 
 namespace Qafoo;
 
-abstract class IntegrationTest extends \PHPUnit_Framework_TestCase
+abstract class IntegrationTest extends \PHPUnit\Framework\TestCase
 {
     
 }

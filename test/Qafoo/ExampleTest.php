@@ -2,7 +2,7 @@
 
 namespace Qafoo;
 
-class ExampleTest extends \PHPUnit_Framework_TestCase
+class ExampleTest extends \PHPUnit\Framework\TestCase
 {
     public function testCorrectQuestionAnswer()
     {
