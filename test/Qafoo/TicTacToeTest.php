@@ -29,4 +29,17 @@ class TicTacToeTest extends \PHPUnit\Framework\TestCase
         $ticTacToe->occupy(TicTacToe::PLAYER_O, 5, 'A');
         // Exception thrown, all fine
     }
+
+    public function testPlayerCannotOccupyACellThatIsAlreadyOccupied()
+    {
+        $ticTacToe = new TicTacToe();
+
+
+        $ticTacToe->occupy(TicTacToe::PLAYER_O, 2, 'B');
+
+        $this->expectException(\LogicException::class);
+
+        $ticTacToe->occupy(TicTacToe::PLAYER_O, 2, 'B');
+        // Exception thrown, all fine
+    }
 }

@@ -27,6 +27,10 @@ class TicTacToe
             throw new \OutOfBoundsException('Column index out of bounds.');
         }
 
+        if ($this->board[$row][$column] !== null) {
+            throw new \LogicException('Cannot occupy a cell twice!');
+        }
+
         $this->board[$row][$column] = $player;
     }
 
