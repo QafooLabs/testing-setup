@@ -12,4 +12,13 @@ class CalculatorTest extends \PHPUnit\Framework\TestCase
 
         $this->assertSame(5, $sum);
     }
+
+    public function testAddZero()
+    {
+        $calculator = new Calculator();
+
+        $sum  = $calculator->add(1, 0);
+
+        $this->assertSame(1,$sum);
+    }
 }
