@@ -19,4 +19,14 @@ class TicTacToeTest extends \PHPUnit\Framework\TestCase
 
         $this->assertEquals(1, $ticTacToe->countOccupiedCells());
     }
+
+    public function testPlayerCannotOccupyCellOutsideTheBoard()
+    {
+        $ticTacToe = new TicTacToe();
+
+        $this->expectException(\OutOfBoundsException::class);
+
+        $ticTacToe->occupy(TicTacToe::PLAYER_O, 5, 'A');
+        // Exception thrown, all fine
+    }
 }

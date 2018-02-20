@@ -20,6 +20,13 @@ class TicTacToe
 
     public function occupy($player, $row, $column)
     {
+        if (!array_key_exists($row, $this->board)) {
+            throw new \OutOfBoundsException('Row index out of bounds.');
+        }
+        if (!array_key_exists($column, $this->board[$row])) {
+            throw new \OutOfBoundsException('Column index out of bounds.');
+        }
+
         $this->board[$row][$column] = $player;
     }
 
