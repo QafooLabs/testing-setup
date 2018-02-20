@@ -18,6 +18,28 @@ class TicTacToe
         ];
     }
 
+    public function getRowNames()
+    {
+        return array_keys($this->board);
+    }
+
+    public function getColumnNames()
+    {
+        return array_keys($this->board[0]);
+    }
+
+    public function isFinished(): bool
+    {
+        foreach ($this->board as $row) {
+            foreach ($row as $cell) {
+                if ($cell === null) {
+                    return false;
+                }
+            }
+        }
+        return true;
+    }
+
     public function occupy($player, $row, $column)
     {
         if (!array_key_exists($row, $this->board)) {

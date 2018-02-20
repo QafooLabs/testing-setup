@@ -4,6 +4,9 @@ namespace Qafoo;
 
 class TicTacToeTest extends \PHPUnit\Framework\TestCase
 {
+    /**
+     * @var TicTacToe
+     */
     private $ticTacToe;
 
     public function setUp()
@@ -39,5 +42,16 @@ class TicTacToeTest extends \PHPUnit\Framework\TestCase
 
         $this->ticTacToe->occupy(TicTacToe::PLAYER_O, 2, 'B');
         // Exception thrown, all fine
+    }
+
+    public function testAGameIsFinishedWhenAllCellsAreTaken()
+    {
+        foreach ($this->ticTacToe->getRowNames() as $rowId) {
+            foreach ($this->ticTacToe->getColumnNames() as $columnId) {
+                $this->ticTacToe->occupy(TicTacToe::PLAYER_O, $rowId, $columnId);
+            }
+        }
+
+        $this->assertTrue($this->ticTacToe->isFinished());
     }
 }
