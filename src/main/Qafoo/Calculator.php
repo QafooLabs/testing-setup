@@ -6,6 +6,6 @@ class Calculator
 {
     public function add($a, $b)
     {
-        return 5;
+        return $a + $b;
     }
 }
